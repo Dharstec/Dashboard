@@ -1,0 +1,84 @@
+<div class="">
+  <div class="back-arrow">
+    <i class="fa fa-arrow-left" aria-hidden="true">
+      Go Back
+    </i>
+  </div>
+  <h1 class="title-inventory">Inventory</h1>
+  <mat-card style="display: flex;">
+    <!-- <mat-card-header>
+          <mat-card-title>Actions Buttons</mat-card-title>
+          <mat-card-subtitle>Start</mat-card-subtitle>
+        </mat-card-header> -->
+    <div class="input-group">
+      <input class="form-control border-end-0 border rounded-pill" type="Search" value=""
+        id="example-search-input" placeholder="&#61442; Search" style="font-family:Arial, FontAwesome">
+      <!-- <span class="input-group-append">
+        <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </span> -->
+    </div>
+    <!-- <div class="dropdown-filter">
+      <mat-form-field appearance="fill">
+        <mat-label>category</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let category of category" [value]="category">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>color</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let color of color" [value]="color">{{color}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>InStock</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let InStock of InStock" [value]="InStock">{{InStock}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> -->
+    <!-- <mat-card-actions>
+      <button mat-button color="primary"> <i class="fa fa-plus"> &nbsp;Add Product</i></button>
+    </mat-card-actions> -->
+  </mat-card>
+</div>
+<div>
+
+ <table class="custom-fixed-tables table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">ID</th>
+          <th scope="col">CATEGORY</th>
+          <th scope="col">COLOUR</th>
+          <th scope="col">NAME</th>
+          <th scope="col">INSTOCK</th>
+          <th scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <ng-container *ngFor="let row of productList.data;let i= index">
+      <tbody>
+        <tr>
+          <th><img src="assets\table_ring.svg"></th>
+          <th>{{row.productId}}</th>
+          <th>{{row.category.join(', ')}}</th>
+          <th>{{row.colour.join(', ')}}</th>
+          <th>{{row.productName}}</th>
+          <th>{{row.stock}}</th>
+          <th>
+            <mat-icon>edit</mat-icon>	
+            <mat-icon>delete_outline</mat-icon>
+            <mat-icon>visibility</mat-icon>
+          </th>
+        </tr>
+      </tbody>
+    </ng-container>
+   
+  </table>
+
+</div>
