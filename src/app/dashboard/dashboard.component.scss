@@ -32,33 +32,75 @@
         }
 
         .app-title {
-            padding: 0 3px;
+            // padding: 0 3px;
             font-size: 32px;
             color: #271111;
             font-weight: 700;
             font-family: 'Inter';
             font-style: normal;
-            line-height: 137.5%;
-            position: absolute;
-            margin-right: 10px;
+            // line-height: 137.5%;
+            // margin-right: 10px;
         }
+        // .app-title img{
+        //     margin-top: 20px;
+        // }
         .current-time{
-            position: absolute;
-            left: 868px;
-            top: 32px;
+            // justify-content: center;
             font-family: 'Inter';
             font-style: normal;
             font-weight: 200;
             font-size: 14px;
-            line-height: 24px;
+            text-align:right;
+            margin-left: 300px;
+            margin-top: 20px;
+            // line-height: 24px;
         }
         .icons{
-            float: right;
+            // float: right;
             font-size:x-large;
             color: #1C1B1F;
-            margin-right: 10px;
+            margin-top: 15px;
+            // margin-right: 10px;
         }
-        
+        // .input-group{
+        //     box-sizing: border-box;
+
+        //     position: absolute;
+        //     width: 222px;
+        //     height: 40px;
+        //     left: 1066px;
+        //     top: 10px;
+            
+        //     border: 1px solid #000000;
+        //     border-radius: 20px;
+            
+        // }
+        .section-b {
+            position:relative;
+            // width: 250px;
+          }
+          
+          .section-b .input {
+            // left: 670px;
+            border: 1px solid #000000;
+            border-radius: 20px;
+            background: #fff;
+            width: 222px;
+           height: 40px;
+           margin-top: 10px;
+        //    left: 1066px;
+            // top: 22px;
+
+          }
+          
+          .section-b .search-icon {
+            cursor: pointer;
+            position: absolute;
+            top: 47%;
+            left: 100px;
+            // transform: translateY(-50%);
+            background: #fff;
+          }
     }
 }
 

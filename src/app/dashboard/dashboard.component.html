@@ -9,16 +9,23 @@
                     <img src="assets\image 5.svg">&nbsp;AURA SILVER</span>
             </a>
         </div>
-       <div class="current-time">
-        {{today | date:'fullDate'}} {{today | date:'h:mm:ss a'}}
-       </div >
-       <div class="input-group">
-        <input class="form-control border-end-0 border rounded-pill" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome"  type="text"  id="example-search-input">
+        <div class="current-time">
+            {{today | date:'fullDate'}} {{today | date:'h:mm:ss a'}}
+           </div >
+       <!-- <div class="input-group">
+        <i class="fa fa-search" aria-hidden="true"></i>
+         <input class="input" type="text" name="Search" placeholder="Search">
+        </div> -->
+        <div class="section-b">
+            <div>
+            <input class="input" type="text" name="Search" placeholder="Search">
+            <i class="fa fa-search" aria-hidden="true" id="search-icon"></i>
         </div>
-    <div class="icons">
-        <i class="fa fa-bell" aria-hidden="true"></i>
-        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-    </div>
+        </div>
+          <div class="icons">
+            <i class="fa fa-bell" aria-hidden="true"></i>&nbsp;
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </div>
     </header>
 
     <mat-sidenav-container class="sidenav-container">

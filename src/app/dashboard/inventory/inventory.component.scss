@@ -33,3 +33,57 @@ color: #271111;
  .back-arrow{
 color: #271111;
  } 
+ .input-group{
+  border: 1px solid #000000;
+  border-radius: 20px;
+ }
+
+ .section-b {
+  position:relative;
+  // width: 250px;
+}
+
+.section-b .input {
+  // left: 670px;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  background: #fff;
+  width: 222px;
+ height: 40px;
+ left: 1066px;
+  top: 22px;
+
+}
+
+.example-additional-selection {
+  // opacity: 0.75;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  font-size: 12px;
+  border-radius: 16px;
+  border: 0px solid #000000;
+  background: #F6F8FA;
+  margin-left: 40px;
+  color:  #000000;
+}
+.add-product button{
+  // padding-left:300px;
+  // position:relative;
+  // text-align: end;
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+  margin-left: 20px;
+  color:  #50163C;  
+  border: hidden;
+  background-color:white;
+  margin-top: 10px;
+}
+
+
+// .mat-form-field-wrapper{
+//   padding-bottom: none;
+// }
