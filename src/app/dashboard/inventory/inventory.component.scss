@@ -26,6 +26,16 @@ font-size: 32px;
 line-height: 137.5%;
 color: #271111;
 }
+.title-inventory i{
+  float: right;
+  margin-right: 290px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #B23392;
+  margin-top: 10px;
+
+
+}
   // .dropdown-filter{
   //   border-radius: 16px;
   // }
@@ -39,12 +49,14 @@ color: #271111;
  }
 
  .section-b {
+  padding: 4px;
   position:relative;
   // width: 250px;
 }
 
 .section-b .input {
   // left: 670px;
+  padding: 15px;
   border: 1px solid #000000;
   border-radius: 20px;
   background: #fff;
@@ -82,7 +94,9 @@ font-size: 20px;
   background-color:white;
   margin-top: 10px;
 }
+// .download-button{
 
+// }
 
 // .mat-form-field-wrapper{
 //   padding-bottom: none;

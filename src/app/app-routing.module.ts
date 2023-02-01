@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddproductComponent } from './dashboard/inventory/addproduct/addproduct.component';
 import { InventoryComponent } from './dashboard/inventory/inventory.component';
 
 const routes: Routes = [
@@ -9,6 +10,7 @@ const routes: Routes = [
   children: [
     { path: '', redirectTo: 'inventory',pathMatch: 'full' },
     { path: 'inventory', component: InventoryComponent, data: { title: 'Inventory'}},
+    { path: 'inventory/addproduct', component: AddproductComponent, data: { title: 'AddProduct'}},
    ]},
 ];
 

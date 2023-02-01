@@ -15,13 +15,15 @@ import { InventoryComponent } from './dashboard/inventory/inventory.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import { AddproductComponent } from './dashboard/inventory/addproduct/addproduct.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    InventoryComponent
+    InventoryComponent,
+    AddproductComponent
   ],
   imports: [
     AppRoutingModule,

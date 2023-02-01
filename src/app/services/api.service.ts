@@ -9,7 +9,7 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   getProductData(){
-    let url='https://ecommerce-azys.onrender.com/Product/getProduct';
+    let url='https://ecommerce-kxhu.onrender.com/Product/getProduct';
     return this.http.get(url);
   }
 }

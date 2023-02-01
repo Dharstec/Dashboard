@@ -76,11 +76,13 @@
             
         // }
         .section-b {
+            padding: 4px;
             position:relative;
             // width: 250px;
           }
           
           .section-b .input {
+            padding: 15px;
             // left: 670px;
             border: 1px solid #000000;
             border-radius: 20px;
@@ -138,4 +140,7 @@
 margin-left: 250px;
 }
 
-
+.mat-drawer-content{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
