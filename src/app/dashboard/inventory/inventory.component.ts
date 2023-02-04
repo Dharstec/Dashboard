@@ -8,6 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./inventory.component.scss']
 })
 export class InventoryComponent implements OnInit {
+  searchText:any;
   Catagory = new FormControl('');
 
   CatagoryList: string[] = [

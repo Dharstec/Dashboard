@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddproductComponent } from './dashboard/inventory/addproduct/addproduct.component';
 import { InventoryComponent } from './dashboard/inventory/inventory.component';
+import { OrderComponent } from './dashboard/inventory/order/order.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -11,6 +12,9 @@ const routes: Routes = [
     { path: '', redirectTo: 'inventory',pathMatch: 'full' },
     { path: 'inventory', component: InventoryComponent, data: { title: 'Inventory'}},
     { path: 'inventory/addproduct', component: AddproductComponent, data: { title: 'AddProduct'}},
+    { path: 'inventory/order', component: OrderComponent, data: { title: 'AddProduct'}},
+
+
    ]},
 ];
 

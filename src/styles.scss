@@ -37,9 +37,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     
       tbody {
         tr{
+          // color: #271111 !important;
+          // font-size: 13px;
+          // line-height: 20px;
           color: #271111 !important;
-          font-size: 13px;
-          line-height: 20px;
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
           box-shadow: inset 0px -1px 0px #DAF1FF !important;
           border-radius: 2px 2px 0px 0px;
           border-top: none !important;

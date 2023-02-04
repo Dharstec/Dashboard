@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import { AddproductComponent } from './dashboard/inventory/addproduct/addproduct.component';
+import { OrderComponent } from './dashboard/inventory/order/order.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AddproductComponent } from './dashboard/inventory/addproduct/addproduct
     AppComponent,
     DashboardComponent,
     InventoryComponent,
-    AddproductComponent
+    AddproductComponent,
+    OrderComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -1,0 +1,72 @@
+.title-inventory {
+    width: 1324px;
+    height: 44px;
+    left: 334px;
+    top: 129px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 137.5%;
+    color: #271111;
+}
+
+.title-inventory i {
+    float: right;
+    margin-right: 290px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #B23392;
+    margin-top: 10px;
+}
+.mat-card{
+display:flex;
+border-radius: 15px;
+width: 300px;
+height: 115px;
+background: rgba(168, 213, 255, 0.65);
+}
+.mat-card-content h3{
+height: 16px;
+color: #000000;
+text-align: center;
+}
+.mat-card-content h3 i{
+    color: #10B981;
+}
+.order-card .mat-card{
+background: rgba(255, 231, 168, 0.65);
+}
+.order-card .mat-card-content h3{
+    height: 16px;
+    color: #000000;
+    text-align: center;
+}
+.order-card .mat-card-content h3 i{
+    // color: #90EE90;
+    color:  #B91010
+}
+
+
+.order-card1 .mat-card{
+    background: rgba(206, 112, 170, 0.3);
+    }
+    .order-card1 .mat-card-content h3{
+        height: 16px;
+        color: #000000;
+        text-align: center;
+    }
+    .order-card1 .mat-card-content h3 i{
+        // color: #90EE90;
+        color:   #10B981
+    }
+
+    .table-card .mat-card{
+        
+        // display: flex;
+        // border-radius: 15px;
+        width: 300px;
+        height: 115px;
+        // background: rgba(168, 213, 255, 0.65);
+    }

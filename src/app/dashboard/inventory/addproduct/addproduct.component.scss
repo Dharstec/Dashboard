@@ -1,13 +1,149 @@
-.title-inventory{
+.title-inventory {
     width: 1324px;
     height: 44px;
     left: 334px;
     top: 129px;
-    
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 137.5%;
     color: #271111;
-    }
+}
+
+.mat-card {
+    height: 740px;
+}
+
+.mat-card .img-thumbnail {
+    width: 305px;
+    height: 270px;
+}
+
+.mat-card .img-thumbnail1 {
+    width: 51px;
+    height: 55px;
+}
+
+.col {
+    margin: 10px;
+}
+
+.mat-card-content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 137.5%;
+}
+
+.form-group .heading input {
+    width: 594px;
+    height: 40px;
+    left: 688px;
+    top: 331px;
+    background: #F6F8FA;
+    border-radius: 15px;
+}
+
+.form-group label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 137.5%;
+    color: #000000;
+}
+
+.discount-price .heading input {
+    width: 262px;
+    height: 40px;
+    background: #F6F8FA;
+    border-radius: 15px;
+}
+
+.discount-price label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 137.5%;
+    color: #000000;
+}
+
+.description label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 137.5%;
+    color: #000000;
+}
+
+.description textarea {
+    width: 594px;
+    height: 127px;
+    background: #F6F8FA;
+    border-radius: 15px;
+}
+.product-count{
+    margin-left: 20px;
+}
+.product-count label{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 137.5%;
+color: #000000;
+
+}
+.product-count .prod-id input {
+    width: 200px;
+    height: 40px;
+    background: #F6F8FA;
+    border-radius: 15px;
+}
+.dropdown select{
+width: 200px;
+height: 40px;
+background: #F6F8FA;
+border-radius: 15px;
+}
+.product-1{
+    margin-left: 20px;
+}
+.product-1 label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 137.5%;
+    color: #000000;
+    
+}
+.product-1 .prod-id input{
+    width: 200px;
+    height: 40px;
+    background: #F6F8FA;
+    border-radius: 15px;
+}
+.save-button{
+    text-align: center;
+    padding: 30px;
+}
+.mat-raised-button{
+    width: 185px;
+height: 55px;
+background: #F6F8FA;
+border-radius: 12px;
+color: #7D1966;
+
+}
+.mat-button{
+    width: 185px;
+    height: 55px;
+    background: #7D1966;
+    border-radius: 12px;
+    color: #fff; 
+}

@@ -16,7 +16,8 @@
         id="example-search-input" placeholder="&#61442; Search" style="font-family:Arial, FontAwesome">
     </div> -->
     <div class="section-b">
-      <input class="input" type="text" name="Search" placeholder="&#61442; Search" style="font-family:Arial, FontAwesome">
+      <input class="input" type="text"  name="Search" placeholder="&#61442; Search" style="font-family:Arial, FontAwesome">
+      <!-- [[ngModel]]="searchText" -->
       <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
     </div>
     <mat-form-field appearance="fill" class="example-additional-selection">
@@ -57,7 +58,8 @@
           <th scope="col">ACTION</th>
         </tr>
       </thead>
-      <ng-container *ngFor="let row of productList.data;let i= index">
+      <ng-container *ngFor="let row of productList.data;let i= index ">
+        <!-- | filter:searchText -->
       <tbody>
         <tr>
           <th><img src="assets\table_ring.svg"></th>
