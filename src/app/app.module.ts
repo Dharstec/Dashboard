@@ -17,7 +17,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import { AddproductComponent } from './dashboard/inventory/addproduct/addproduct.component';
 import { OrderComponent } from './dashboard/inventory/order/order.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogAddproductComponent } from './dashboard/inventory/addproduct/dialog-addproduct/dialog-addproduct.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { OrderComponent } from './dashboard/inventory/order/order.component';
     InventoryComponent,
     AddproductComponent,
     OrderComponent,
+    DialogAddproductComponent,
+    SearchPipe,
   ],
   imports: [
     AppRoutingModule,
@@ -38,7 +43,10 @@ import { OrderComponent } from './dashboard/inventory/order/order.component';
     MatCardModule,
     MatTableModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
     
     providers: [DatePipe],

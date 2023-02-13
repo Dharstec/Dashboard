@@ -1,102 +1,14 @@
-<!-- <div class="">
-  <div class="back-arrow">
-    <i class="fa fa-arrow-left" aria-hidden="true">
-      Go Back
-    </i>
-  </div>
-  <h1 class="title-inventory">Inventory-Add Product
-  </h1>
-
-<mat-card>
-  <mat-card-content>Product Image
-  </mat-card-content>
-  <img src="assets\mia-mini-necklace.jpg.svg" class="img-thumbnail">
-  <div class="product-details d-flex justify-content-center">
-  <h3>Product Details</h3> -->
-<!-- <form>
-    <div class="form-row ">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form> -->
-<!-- </div>
-</mat-card>
-</div> -->
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="back-arrow">
-        <i class="fa fa-arrow-left" aria-hidden="true">
-          Go Back
-        </i>
-      </div>
-      <h1 class="title-inventory">Inventory-Add Product
-      </h1>
-    </div>
-    <div class="col">
-      <mat-card>
-        <mat-card-content>
-        Product Image 
-        Product Details
-        </mat-card-content>
-        <img src="assets\mia-mini-necklace.jpg.svg" class="img-thumbnail"> -->
-<!-- <div class="product-details d-flex justify-content-center">
-        </div> -->
-<!-- </mat-card>
-    </div>
-  </div>
-</div> -->
 
 <div class="container">
-  <div class="back-arrow">
+  <div class="back-arrow " routerLink="/dashboard/inventory">
     <i class="fa fa-arrow-left" aria-hidden="true">
       Go Back
     </i>
   </div>
-  <h1 class="title-inventory">Inventory-Add Product
+  <h1 class="title-inventory">Inventory-{{changetheproductName}}
   </h1>
   <mat-card>
+    <form [formGroup]="productForm">
     <div class="row">
       <div class="col">
         <mat-card-content>Product Image</mat-card-content>
@@ -111,13 +23,13 @@
           </div>
         </div>
       </div>
+
       <div class="col">
         <mat-card-content>Product Details</mat-card-content>
-        <form>
           <div class="form-group">
             <label>Heading</label>
             <div class="heading">
-            <input type="Heading" class="form-control" id="exampleInputHeading1" placeholder="Heading">
+            <input type="Heading" [class.disabled]="!editproduct" formControlName="productName" class="form-control" id="exampleInputHeading1" placeholder="Heading">
           </div>
           </div>
           <div class="discount-price">
@@ -125,13 +37,13 @@
               <div class="col">
                 <label>Discount Price</label>
                 <div class="heading">
-                <input type="text" class="form-control" placeholder="220">
+                <input type="number" id="discountPrice" [class.disabled]="!editproduct" formControlName="discountPrice"class="form-control" placeholder="220">
               </div>
               </div>
               <div class="col">
                 <label>Compared Price</label>
                 <div class="heading">
-                  <input type="text" class="form-control" placeholder="220">
+                  <input type="number" id="comparedPrice"  [class.disabled]="!editproduct" formControlName="comparedPrice" class="form-control" placeholder="220">
                 </div>
               </div>
             </div>
@@ -139,10 +51,10 @@
           <div class="description">
             <label>Description</label>
             <div class="heading">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <!-- <input formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3"/> -->
+            <textarea  formControlName="description"  [class.disabled]="!editproduct" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           </div>
-        </form>
       </div>
     </div>
     <div class="product-count">
@@ -150,19 +62,19 @@
         <div class="col">
           <label>ID</label>
           <div class="prod-id">
-          <input type="text" class="form-control" placeholder="#123">
+          <input type="text"  formControlName="_id"  [class.disabled]="!editproduct" class="form-control" placeholder="#123">
         </div>
         </div>
         <div class="col">
-          <label>Quantity</label>
+          <label>Quantity/Stock</label>
           <div class="prod-id">
-          <input type="text" class="form-control" placeholder="10">
+          <input type="text" formControlName="stock"  [class.disabled]="!editproduct" class="form-control" placeholder="10">
         </div>
         </div>
         <div class="col">
           <div class="dropdown">
             <label>Gender</label>
-            <select name="gender" id="gender">
+            <select name="gender" id="gender" formControlName="gender">
               <option value="womens" selected>women</option>
               <option value="mens">mens</option>
               <option value="netural">netural</option>
@@ -172,7 +84,7 @@
         <div class="col">
           <label>Category</label>
           <div class="prod-id">
-            <input type="text" class="form-control" placeholder="Earring">
+            <input type="text" formControlName="category"  [class.disabled]="!editproduct" class="form-control" placeholder="Earring">
           </div>
         </div>
       </div>
@@ -182,28 +94,35 @@
       <div class="col">
         <label>Stone</label>
         <div class="prod-id">
-        <input type="text" class="form-control" placeholder="Stone">
+        <input type="text"  formControlName="stone"   [class.disabled]="!editproduct" class="form-control" placeholder="Stone">
       </div>
       </div>
       <div class="col">
-       <label>Color</label>
+       <label>Colour</label>
           <div class="prod-id">
-          <input type="text" class="form-control" placeholder="Color">
+          <input type="text" formControlName="colour"  [class.disabled]="!editproduct" class="form-control" placeholder="Color">
         </div>
       </div>
       <div class="col">
        <label>Style</label>
           <div class="prod-id">
-          <input type="text" class="form-control" placeholder="Style">
+          <input type="text" formControlName="style"  [class.disabled]="!editproduct" class="form-control"  placeholder="Style">
         </div>
       </div>
+      <div class="col">
+        <label>referenceId</label>
+           <div class="prod-id">
+           <input type="number" formControlName="referenceId"  [class.disabled]="!editproduct" class="form-control"  placeholder="referenceId">
+         </div>
+       </div>
     </div>
   </div>
-  <div class="save-button">
-    <button mat-raised-button>Discard</button> &nbsp;  
-    <button mat-button color="primary">Save</button>
-
-    <!-- <button>Light</button> -->
+</form>
+  <div class="save-button " *ngIf=!hideButton >
+    <!-- edit fuction -->
+    <button mat-raised-button  [class.disabled]="!editproduct" (click)="editProductData()"> {{!productview ? 'discard' : 'save' }}</button> &nbsp;  
+    <!-- // save fuction -->
+    <button mat-button color="primary"   (click)="addProductData()" >{{!productview ? 'save' : !editproduct?'Edit':'Cancel'}}</button>
   </div>
   </mat-card>
 </div>

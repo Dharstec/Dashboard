@@ -1,3 +1,7 @@
+
+<!-- <ng-container *ngIf="!showProductPage"> -->
+
+
 <div class="">
   <div class="back-arrow">
     <i class="fa fa-arrow-left" aria-hidden="true">
@@ -5,42 +9,40 @@
     </i>
   </div>
   <h1 class="title-inventory">Inventory
-    <!-- <div class="download-button"> -->
     <i class="fa fa-download" aria-hidden="true">&nbsp;Export to Excel</i>
-    <!-- </div> -->
   </h1>
  
   <mat-card style="display: flex;">
-    <!-- <div class="input-group">
-      <input class="form-control border-end-0 border rounded-pill" type="Search" value=""
-        id="example-search-input" placeholder="&#61442; Search" style="font-family:Arial, FontAwesome">
-    </div> -->
     <div class="section-b">
-      <input class="input" type="text"  name="Search" placeholder="&#61442; Search" style="font-family:Arial, FontAwesome">
+      <input class="input" type="text"  name="Search" placeholder="&#61442; Search" [(ngModel)]="searchText" style="font-family:Arial, FontAwesome">
       <!-- [[ngModel]]="searchText" -->
       <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
     </div>
+    <form [formGroup]="productFormGroup">
     <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Catagory</mat-label>
-      <mat-select formControl="Catagory" multiple>
-        <mat-option *ngFor="let Catagory of CatagoryList" [value]="Catagory">{{Catagory}}</mat-option>
+      <mat-select formControlName="Catagory" multiple>
+        <mat-option (change)="productCategory($event,row,'catagory')" *ngFor="let row of CatagoryList" [value]="row">{{row}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Color</mat-label>
-      <mat-select formControl="Color" multiple>
-        <mat-option *ngFor="let Color of ColorList" [value]="Color">{{Color}}</mat-option>
+      <mat-select  formControlName="Color" multiple>
+        <mat-option (change)="productCategory($event,row,'color')" *ngFor="let row of ColorList" [value]="row">{{row}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Stock</mat-label>
-      <mat-select formControl="Stock" multiple>
-        <mat-option *ngFor="let Stock of StockList" [value]="Stock">{{Stock}}</mat-option>
+      <mat-select  formControlName="Stocks" multiple>
+        <mat-option (change)="productCategory($event,row,'stocks')"  *ngFor="let row of StockLists" [value]="row">{{row}}</mat-option>
       </mat-select>
     </mat-form-field>
+  </form>
     <div class="add-product">
-    <button><i class="fa fa-plus" aria-hidden="true">&nbsp;Add Product</i></button>
+
+    <button (click)="addproduct()"><i class="fa fa-plus" aria-hidden="true">Add Product</i></button>
   </div>
+
   </mat-card>
   
 </div>
@@ -55,23 +57,31 @@
           <th scope="col">COLOUR</th>
           <th scope="col">NAME</th>
           <th scope="col">INSTOCK</th>
+          <th scope="col">REFERENCEID</th>
           <th scope="col">ACTION</th>
         </tr>
       </thead>
-      <ng-container *ngFor="let row of productList.data;let i= index ">
+      <ng-container *ngFor="let row of productList.data | search:searchText ;let i= index ">
         <!-- | filter:searchText -->
       <tbody>
         <tr>
           <th><img src="assets\table_ring.svg"></th>
-          <th>{{row.productId}}</th>
+          <th>{{row._id}}</th>
           <th>{{row.category.join(', ')}}</th>
           <th>{{row.colour.join(', ')}}</th>
           <th>{{row.productName}}</th>
           <th>{{row.stock}}</th>
+          <th>{{row.referenceId}}</th>
           <th>
-            <mat-icon>edit</mat-icon>	
-            <mat-icon>delete_outline</mat-icon>
-            <mat-icon>visibility</mat-icon>
+          
+            <mat-icon   (click)="editProduct(row)">edit</mat-icon>	
+            <mat-icon (click)="openDialog(row)">
+              <!-- <mat-dialog-actions> -->
+                <!-- <button mat-raised-button >delete_outline</button> -->
+              <!-- </mat-dialog-actions> -->
+              delete_outline
+            </mat-icon>
+            <mat-icon (click)="editProduct(row,'view') ">visibility</mat-icon>
           </th>
         </tr>
       </tbody>
@@ -80,3 +90,7 @@
   </table>
 
 </div>
+<!-- </ng-container> -->
+<!-- <router-outlet
+*ngIf="showProductPage"
+></router-outlet> -->
