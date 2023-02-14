@@ -11,16 +11,23 @@ import { Router } from '@angular/router';
 })
 export class DialogAddproductComponent implements OnInit {
 productName:any
-  
-  constructor( @Inject(MatDialogModule) public data: any,private api: ApiService,private route: Router,) { }
+// {datakey:string,key:string}
+  constructor( @Inject(MatDialogModule) public data:any,private api: ApiService) { 
+
+  }
 
   ngOnInit(): void {
-    console.log(this.data)
+    console.log("inventory data is",this.data.datakey)
+ 
   }
-  // deleteProduct(){
-  //   let body={
-  //     _id:
-  //   }
-  //   this.api.deleteProduct(body).subscribe()
-  // }
+  deleteProduct(){
+    // this.api.deleteProduct().subscribe((result)=>{
+    //   console.log(result);
+      
+    // })
+  }
 }
+
+// export class YourDialog {
+//   constructor(@Inject(MAT_DIALOG_DATA) public data: {name: string}) { }
+// }

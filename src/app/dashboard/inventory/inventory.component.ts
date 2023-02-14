@@ -50,21 +50,28 @@ productAllList:any
     "4",
     "5",
   ]
-  selectedFilterList: any;
+  dialogValue: any;
+
 
   constructor(private matDialog: MatDialog, private api: ApiService, private route: Router, private productDetails: ProductdetailsService, public dialog: MatDialog, private formBuilder: FormBuilder) {
   }
   openDialog(row):Observable<any> {
-   let dialog= this.matDialog.open(DialogAddproductComponent, {
+    // :Observable<any>
+    let dialog= this.matDialog.open(DialogAddproductComponent, {
       width: '400px',
       data:{
        datakey:row.productName,
-        key:row._id
-      //  row.data.productName
+        key:row._id,
       },
     })
+  // dialog.afterClosed().subscribe(result=>{
+  //   console.log("this is dialog box", result);
+  //   this.dialogValue=result.data
+    
+  // })
     return dialog.afterClosed()
   }
+
 
 
   ngOnInit(): void {

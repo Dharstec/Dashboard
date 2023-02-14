@@ -15,8 +15,6 @@
   <mat-card style="display: flex;">
     <div class="section-b">
       <input class="input" type="text"  name="Search" placeholder="&#61442; Search" [(ngModel)]="searchText" style="font-family:Arial, FontAwesome">
-      <!-- [[ngModel]]="searchText" -->
-      <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
     </div>
     <form [formGroup]="productFormGroup">
     <mat-form-field appearance="fill" class="example-additional-selection">
@@ -57,7 +55,7 @@
           <th scope="col">COLOUR</th>
           <th scope="col">NAME</th>
           <th scope="col">INSTOCK</th>
-          <th scope="col">REFERENCEID</th>
+          <th scope="col">REFERENCE ID</th>
           <th scope="col">ACTION</th>
         </tr>
       </thead>
