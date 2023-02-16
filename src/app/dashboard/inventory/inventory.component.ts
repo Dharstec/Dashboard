@@ -7,7 +7,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { ProductdetailsService } from 'src/app/services/productdetails.service';
 import { DialogAddproductComponent } from './addproduct/dialog-addproduct/dialog-addproduct.component';
 import { Observable } from 'rxjs';
-
+import { Options } from '@angular-slider/ngx-slider';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -20,10 +20,9 @@ export class InventoryComponent implements OnInit {
   editProductDetails = true;
   productList: any;
   productFormGroup: any
-productAllList:any
+  productAllList: any
 
   Catagory = new FormControl('');
-
   CatagoryList: string[] = [
     "Anklets",
     "Bracelets",
@@ -42,42 +41,54 @@ productAllList:any
     "Rose Gold",
     "Silver"
   ]
-  Stocks = new FormControl('');
-  StockLists: string[] = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-  ]
+  // value: number = 100;
+  // highValue: number = 60;
+  // options: Options = {
+  //   floor: 0,
+  //   ceil: 200
+  // };
+  // Stocks = new FormControl('');
+  // StockLists: string[] = [
+  //   "1",
+  //   "2",
+  //   "3",
+  //   "4",
+  //   "5",
+  // ]
   dialogValue: any;
+  allProductList: any;
 
 
   constructor(private matDialog: MatDialog, private api: ApiService, private route: Router, private productDetails: ProductdetailsService, public dialog: MatDialog, private formBuilder: FormBuilder) {
   }
-  openDialog(row):Observable<any> {
+  openDialog(row): Observable<any> {
     // :Observable<any>
-    let dialog= this.matDialog.open(DialogAddproductComponent, {
+    let dialog = this.matDialog.open(DialogAddproductComponent, {
       width: '400px',
-      data:{
-       datakey:row.productName,
-        key:row._id,
+      data: {
+        productName: row.productName,
+        productId: row._id,
       },
     })
-  // dialog.afterClosed().subscribe(result=>{
-  //   console.log("this is dialog box", result);
-  //   this.dialogValue=result.data
-    
-  // })
+
+    //    dialog.afterClosed().subscribe(result=>{
+    //     let res = result.data
+    //   console.log("this is dialog box", res);
+    //   // this.dialogValue=result.data
+
+    // })
+    console.log("dialog box", dialog.afterClosed());
+
     return dialog.afterClosed()
   }
 
 
 
   ngOnInit(): void {
-    this.api.getProductData().subscribe(async data => {
-      console.log("data", data); // get product data result
-      this.productList = data
+    this.api.getProductData().subscribe(async (res: any) => {
+      console.log("data", res); // get product data result
+      this.productList = res.data
+      this.allProductList = this.productList
       // await this.getTableData()
 
     })
@@ -88,17 +99,40 @@ productAllList:any
       Stocks: [null]
     })
   }
-  productCategory(event, row, type) {
-    let checked = event.target.checked
+  productCategory(event, type) {
+    let checked = event.value
+    console.log("checked", checked);
+
     if (checked) {
-      this.productList.data.forEach(element=>{
-        element.category.map(items=>{
-          // this.CatagoryList.forEach(x=>{
-          //   if(x.CatagoryList==items.category && x.checked)
-          // })
+      let temp = []
+      console.log("productList", this.productList);
+
+      this.allProductList.forEach(element => {
+        element.category.map(items => {
+          checked.forEach(x => {
+            if (x == items) {
+
+              temp.push(element)
+            }
+            this.productList = temp
+
+          })
         })
 
       })
+      this.allProductList.forEach(element=>{
+        element.colour.map(items=>{
+          checked.forEach(x=>{
+            if(x==items){
+              temp.push(element)
+            }
+            this.productList=temp
+          })
+        })
+      })
+      console.log("temp", temp);
+      console.log("productListdata", this.productList.data);
+
 
     }
     else {
@@ -108,17 +142,15 @@ productAllList:any
   addproduct() {
     this.productDetails.setdata(false)
     console.log(this.productDetails);
-    
     // this.showProductPage=true
-    return this.route.navigate(['dashboard/productDetails'],{queryParams:{type:'addProduct'}})
+    return this.route.navigate(['dashboard/productDetails'], { queryParams: { type: 'addProduct' } })
 
   }
   editProduct(rowData, viewData?: any) {
-
     // let view= viewData == 'view' ? 'view' : rowData
     this.productDetails.setdata(rowData, viewData)
     console.log(rowData);
-    this.route.navigate(['dashboard/productDetails'],{queryParams:{type:!viewData ? 'editProduct' :'viewProduct'}})
+    this.route.navigate(['dashboard/productDetails'], { queryParams: { type: !viewData ? 'editProduct' : 'viewProduct' } })
     // return this.route.navigate(['dashboard/productDetails'],{queryParams:{type:'editProduct',viewData:'viewProduct'}})
   }
 

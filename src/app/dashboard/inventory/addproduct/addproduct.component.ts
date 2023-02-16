@@ -17,7 +17,7 @@ export class AddproductComponent implements OnInit {
   hideButton: any = false;
   changename: any;
   changetheproductName: any
-  constructor(private productDetails: ProductdetailsService, private route: ActivatedRoute, private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private productDetails: ProductdetailsService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder, private api: ApiService) { }
 
   ngOnInit(): void {
 
@@ -35,8 +35,8 @@ export class AddproductComponent implements OnInit {
         this.editproduct = true
       }
       else if (data == 'editProduct') {
-        console.log("edit data",data);
-        
+        console.log("edit data", data);
+
         this.changetheproductName = "Edit Product"
         this.editproduct = false
 
@@ -54,9 +54,9 @@ export class AddproductComponent implements OnInit {
     this.productForm = this.formBuilder.group({
       productName: [row && row.productName ? row.productName : null,], //bc name 
       discountPrice: [row && row.discountPrice ? row.discountPrice : null,],
-      comparedPrice: [row && row.comparedPrice ? row.comparedPrice : null,],
+      actualPrice: [row && row.actualPrice ? row.actualPrice : null,],
       description: [row && row.description ? row.description : null,],
-      gender: [row && row.for ? row.for : null,],
+    for: [row && row.for ? row.for : null,],
       _id: [row && row._id ? row._id : null,],
       stock: [row && row.stock ? row.stock : null,],
       category: [row && row.category ? row.category : null,],
@@ -75,7 +75,7 @@ export class AddproductComponent implements OnInit {
       let body = {
         "productName": form.productName,
         "discountPrice": Number(form.discountPrice),
-        "actualPrice": Number(form.comparedPrice),
+        "actualPrice": Number(form.actualPrice),
         "description": form.description,
         "category": form.category,
         "stone": form.stone,
@@ -83,13 +83,15 @@ export class AddproductComponent implements OnInit {
         "referenceId": Number(form.referenceId),
         "style": form.style,
         "stock": Number(form.stock),
-        "for": form.gender,
+        "for": form.for,
 
       }
       this.api.createProductData(body).subscribe((result) => {
         console.log(result);
-
+        alert("add product succesfully");
+        window.location.reload();
       })
+      return this.router.navigate(['dashboard/inventory'])
 
     }
     else {
@@ -100,29 +102,35 @@ export class AddproductComponent implements OnInit {
 
   //edit ==> form group
   editProductData() {
-    this.editproduct = !this.editproduct
-    if (this.changetheproductName == 'Edit Product'){
+    // this.editproduct = !this.editproduct
+    if (this.changetheproductName == 'Edit Product') {
       let form = this.productForm.getRawValue()
       let body = {
         "_id": form._id,
         "productName": form.productName,
         "discountPrice": form.discountPrice,
-        "actualPrice": form.comparedPrice,
+        "actualPrice": form.actualPrice,
         "description": form.description,
         "stock": form.stock,
         "category": form.category,
         "stone": form.stone,
         "colour": form.colour,
         "style": form.style,
-        "for": form.gender
-  
+        "for": form.for
+
       }
       this.api.updateProduct(body).subscribe((res) => {
         console.log(res);
-  
+        alert("edit product succesfully");
+
+        window.location.reload();
+
       })
+
+      return this.router.navigate(['dashboard/inventory'])
+
     }
-  
-    }
-    
+
+  }
+
 }

@@ -88,29 +88,34 @@
                     </th>
                 </tr>
             </thead>
-            <ng-container>
+            <ng-container *ngFor="let row of orderList let i=index  ">
                 <tbody>
                     <tr>
                         <th>
-                            #1234
-                            GIFT WRAP
+                            {{row._id}}
+                            <!-- #1234
+                            GIFT WRAP -->
                         </th>
                         <th>
-                            Billing Address:<br>
+                            {{row.customerAddress}}
+
+                            <!-- Billing Address:<br>
                             Dharstec Solutions admin@dharstec.com
                             Balaji Nagar 2nd Cross Street
-                            9876543210
+                            9876543210 -->
                         </th>
                         <th>
-                            Product:<br>
+                            {{row.orderedBy}}
+                            <!-- Product:<br>
                             Blue Stone Ear Ring
                             Quantity:2
-                            Price:2350
+                            Price:2350 -->
                         </th>
                         <th>
                             <!-- <img src="assets\Rectangle 506.png" /> -->
                             <i class="fa fa-square-o" aria-hidden="true"></i>
-                            Dispatch
+                            <!-- Dispatch -->
+                            {{row.orderStatus}}
                         </th>
                     </tr>
                 </tbody>

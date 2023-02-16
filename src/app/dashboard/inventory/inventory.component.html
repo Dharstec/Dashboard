@@ -19,22 +19,26 @@
     <form [formGroup]="productFormGroup">
     <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Catagory</mat-label>
-      <mat-select formControlName="Catagory" multiple>
-        <mat-option (change)="productCategory($event,row,'catagory')" *ngFor="let row of CatagoryList" [value]="row">{{row}}</mat-option>
+      <mat-select (selectionChange)="productCategory($event,'catagory')" formControlName="Catagory" multiple>
+        <mat-option  *ngFor="let row of CatagoryList" [value]="row">{{row}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Color</mat-label>
-      <mat-select  formControlName="Color" multiple>
-        <mat-option (change)="productCategory($event,row,'color')" *ngFor="let row of ColorList" [value]="row">{{row}}</mat-option>
+      <mat-select (selectionChange)="productCategory($event,'color')"  formControlName="Color" multiple>
+        <mat-option  *ngFor="let row of ColorList" [value]="row">{{row}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" class="example-additional-selection">
+    <!-- <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Stock</mat-label>
       <mat-select  formControlName="Stocks" multiple>
         <mat-option (change)="productCategory($event,row,'stocks')"  *ngFor="let row of StockLists" [value]="row">{{row}}</mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
+    <!-- <ngx-slider [(value)]="value" [(highValue)]="highValue"  [options]="options">
+<input type="number" [(ngModel)]="value">
+<input type="number" [(ngModel)]="highValue">
+</ngx-slider> -->
   </form>
     <div class="add-product">
 
@@ -59,7 +63,7 @@
           <th scope="col">ACTION</th>
         </tr>
       </thead>
-      <ng-container *ngFor="let row of productList.data | search:searchText ;let i= index ">
+      <ng-container *ngFor="let row of productList | search:searchText ;let i= index ">
         <!-- | filter:searchText -->
       <tbody>
         <tr>
