@@ -22,14 +22,10 @@ productName:any
  
   }
   deleteProduct(){
-    let body={
-      "_id":this.data.productId
-
-    }
-    console.log("_id of delete",body);
-    
-    this.api.deleteProduct(body).subscribe((result)=>{
+    let params= this.data.productId    
+    this.api.deleteProduct(params).subscribe((result)=>{
       console.log(result);
+      alert("delete product succesfully");
       window.location.reload()
       
     })

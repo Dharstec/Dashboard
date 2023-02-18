@@ -5,7 +5,7 @@
         </i>
     </div>
     <h1 class="title-inventory">Order Management
-        <i class="fa fa-download" aria-hidden="true">&nbsp;Export to Excel</i>
+        <i class="fa fa-download" aria-hidden="true" (click)="exportexcel()">&nbsp;Export to Excel</i>
     </h1>
 
     <div class="container">
@@ -52,22 +52,22 @@
         <mat-card>
             <!-- <mat-card-content>Simple card</mat-card-content> -->
             <div class="section-b ">
-                <input class="input" type="text"  name="Search" placeholder="&#61442; Search" style="font-family:Arial, FontAwesome">
+                <input class="input" type="text"  name="Search" placeholder="&#61442; Search" [(ngModel)]="orderSearchValue"style="font-family:Arial, FontAwesome">
               </div> 
               <div class="dropdown-select">
               <mat-form-field appearance="fill">
-                <mat-label>New Order</mat-label>
+                <mat-label>Order placed</mat-label>
                 <mat-select disableRipple>
-                  <mat-option value="1">New Order</mat-option>
-                  <mat-option value="2">New Order 1</mat-option>
-                  <!-- <mat-option value="3">Option 3</mat-option> -->
+                  <mat-option value="1">order Placed</mat-option>
+                  <mat-option value="2">Dispatched</mat-option>
+                  <mat-option value="3">Delivered</mat-option>
                 </mat-select>
               </mat-form-field>
             </div> 
             </mat-card>
 </div>
    
-          <table class="custom-fixed-tables table">
+          <table class="custom-fixed-tables table" id="excel-table-id">
             <thead>
                 <tr>
                     <th scope="col">
@@ -88,7 +88,7 @@
                     </th>
                 </tr>
             </thead>
-            <ng-container *ngFor="let row of orderList let i=index  ">
+            <ng-container *ngFor="let row of orderList  | orderSearch:orderSearchValue ; let i=index  ">
                 <tbody>
                     <tr>
                         <th>
@@ -97,15 +97,25 @@
                             GIFT WRAP -->
                         </th>
                         <th>
-                            {{row.customerAddress}}
+                            <!-- Billing Address:<br> -->
+                            {{row.customerAddress}} <br>
+                            <!-- Phone Number:<br> -->
+                            {{row.customerPhoneNumber}}
 
                             <!-- Billing Address:<br>
                             Dharstec Solutions admin@dharstec.com
                             Balaji Nagar 2nd Cross Street
                             9876543210 -->
                         </th>
+                       
                         <th>
-                            {{row.orderedBy}}
+                         <div *ngFor="let list of row.orders let i=index ">
+                            {{list.productId.productName}}<br>
+                            {{list.productId.category.join(', ')}}<br>
+                            {{list.productId.colour.join(', ')}}<br>
+                            {{list.quantity}}<br>
+                            {{list.productId.actualPrice}}<br>
+                         </div>
                             <!-- Product:<br>
                             Blue Stone Ear Ring
                             Quantity:2
@@ -115,7 +125,7 @@
                             <!-- <img src="assets\Rectangle 506.png" /> -->
                             <i class="fa fa-square-o" aria-hidden="true"></i>
                             <!-- Dispatch -->
-                            {{row.orderStatus}}
+                            {{row.orderStatus.join(', ')}}
                         </th>
                     </tr>
                 </tbody>

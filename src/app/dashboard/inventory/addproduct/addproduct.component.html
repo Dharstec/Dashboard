@@ -8,7 +8,7 @@
   <h1 class="title-inventory">Inventory-{{changetheproductName}}
   </h1>
   <mat-card>
-    <form [formGroup]="productForm">
+    <form [formGroup]="productForm" class="productform" style="border: none;">
     <div class="row">
       <div class="col">
         <mat-card-content>Product Image</mat-card-content>
@@ -26,24 +26,24 @@
 
       <div class="col">
         <mat-card-content>Product Details</mat-card-content>
-          <div class="form-group">
-            <label>Heading</label>
+          <!-- <div class="form-group"> -->
+            <label>ProductName</label>
             <div class="heading">
-            <input type="Heading" [class.disabled]="!editproduct" formControlName="productName" class="form-control" id="exampleInputHeading1" placeholder="Heading">
-          </div>
+            <input  style="border: none;" type="Heading" [class.disabled]="!editproduct" class="no-outline" formControlName="productName" class="form-control" id="exampleInputHeading1" placeholder="ProductName">
+          <!-- </div> -->
           </div>
           <div class="discount-price">
             <div class="row">
               <div class="col">
                 <label>Discount Price</label>
                 <div class="heading">
-                <input type="number" id="discountPrice" [class.disabled]="!editproduct" formControlName="discountPrice"class="form-control" placeholder="220">
+                <input style="border: none;" type="number" id="discountPrice" [class.disabled]="!editproduct" formControlName="discountPrice"class="form-control" placeholder="220">
               </div>
               </div>
               <div class="col">
                 <label>ActualPrice</label>
                 <div class="heading">
-                  <input type="number" id="actualPrice"  [class.disabled]="!editproduct" formControlName="actualPrice" class="form-control" placeholder="220">
+                  <input style="border: none;" type="number" id="actualPrice"  [class.disabled]="!editproduct" formControlName="actualPrice" class="form-control" placeholder="220">
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
             <label>Description</label>
             <div class="heading">
             <!-- <input formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3"/> -->
-            <textarea  formControlName="description"  [class.disabled]="!editproduct" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea  style="border: none;" formControlName="description"  [class.disabled]="!editproduct" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           </div>
       </div>
@@ -62,19 +62,19 @@
         <div class="col">
           <label>ID</label>
           <div class="prod-id">
-          <input type="text"  formControlName="_id"  [class.disabled]="!editproduct" class="form-control" placeholder="#123">
+          <input style="border: none;" type="text"  formControlName="_id"  [class.disabled]="!editproduct" class="form-control" placeholder="#123">
         </div>
         </div>
         <div class="col">
           <label>Quantity/Stock</label>
           <div class="prod-id">
-          <input type="text" formControlName="stock"  [class.disabled]="!editproduct" class="form-control" placeholder="10">
+          <input style="border: none;" type="text" formControlName="stock"  [class.disabled]="!editproduct" class="form-control" placeholder="10">
         </div>
         </div>
         <div class="col">
           <div class="dropdown">
             <label>Gender</label>
-            <select name="for" id="for" formControlName="for" [class.disabled]="!editproduct">
+            <select name="for" id="for" formControlName="for" [class.disabled]="!editproduct" style="border: none;">
               <option value="women" selected>women</option>
               <option value="men">men</option>
               <option value="neutral">neutral</option>
@@ -84,7 +84,7 @@
         <div class="col">
           <label>Category</label>
           <div class="dropdown">
-            <select name="category" id="category" formControlName="category" [class.disabled]="!editproduct">
+            <select name="category" id="category" formControlName="category" [class.disabled]="!editproduct" style="border: none;">
               <option value="Anklets" selected>Anklets</option>
               <option value="Bracelets">Bracelets</option>
               <option value="Bangles">Bangles</option>
@@ -106,7 +106,7 @@
       <div class="col">
         <label>Stone</label>
         <div class="dropdown">
-          <select name="stone" id="stone" formControlName="stone" [class.disabled]="!editproduct" >
+          <select name="stone" id="stone" formControlName="stone" [class.disabled]="!editproduct" style="border: none;">
             <option value="Colored Stone" selected>Colored Stone</option>
             <option value="Colored Zircon">Colored Zircon</option>
             <option value="Diamond">Diamond</option>
@@ -123,14 +123,11 @@
       <div class="col">
        <label>Colour</label>
           <div class="dropdown">
-            <select name="colour" id="colour" formControlName="colour" [class.disabled]="!editproduct" >
+            <select name="colour" id="colour" formControlName="colour" [class.disabled]="!editproduct" style="border: none;">
               <option value="Gold" selected>Gold</option>
               <option value="Oxidised Silver">Oxidised Silver</option>
               <option value="Rose Gold">Rose Gold</option>
               <option value="Silver">Silver</option>
-  
-              
-  
             </select>
           <!-- <input type="text" formControlName="colour"  [class.disabled]="!editproduct" class="form-control" placeholder="Color"> -->
         </div>
@@ -138,7 +135,7 @@
       <div class="col">
        <label>Style</label>
           <div class="dropdown">
-            <select name="style" id="style" formControlName="style" [class.disabled]="!editproduct" >
+            <select name="style" id="style" formControlName="style" [class.disabled]="!editproduct" style="border: none;" >
               <option value="Everyday" selected>Everyday</option>
               <option value="Office">Office</option>
               <option value="Party">Party</option>
@@ -153,7 +150,7 @@
       <div class="col">
         <label>referenceId</label>
            <div class="prod-id">
-           <input type="number" formControlName="referenceId"  [class.disabled]="!editproduct" class="form-control"  placeholder="referenceId">
+           <input type="number" formControlName="referenceId"  [class.disabled]="!editproduct" class="form-control"  placeholder="referenceId" style="border: none;">
          </div>
        </div>
     </div>

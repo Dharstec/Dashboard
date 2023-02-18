@@ -20,7 +20,7 @@ import { OrderComponent } from './dashboard/inventory/order/order.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogAddproductComponent } from './dashboard/inventory/addproduct/dialog-addproduct/dialog-addproduct.component';
-import { SearchPipe } from './search.pipe';
+import { SearchPipe,orderSearchPipe } from './search.pipe';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     OrderComponent,
     DialogAddproductComponent,
     SearchPipe,
+    orderSearchPipe
   ],
   imports: [
     AppRoutingModule,

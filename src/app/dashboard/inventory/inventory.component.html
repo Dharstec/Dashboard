@@ -9,7 +9,7 @@
     </i>
   </div>
   <h1 class="title-inventory">Inventory
-    <i class="fa fa-download" aria-hidden="true">&nbsp;Export to Excel</i>
+    <i class="fa fa-download" aria-hidden="true" (click)="exportexcel()">&nbsp;Export to Excel</i>
   </h1>
  
   <mat-card style="display: flex;">
@@ -19,7 +19,7 @@
     <form [formGroup]="productFormGroup">
     <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Catagory</mat-label>
-      <mat-select (selectionChange)="productCategory($event,'catagory')" formControlName="Catagory" multiple>
+      <mat-select (selectionChange)="productCategory($event,'catagory')"  formControlName="Catagory" multiple>
         <mat-option  *ngFor="let row of CatagoryList" [value]="row">{{row}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -50,7 +50,7 @@
 </div>
 <div>
 
- <table class="custom-fixed-tables table">
+ <table class="custom-fixed-tables table" id="excel-table-id">
       <thead>
         <tr>
           <th scope="col"></th>

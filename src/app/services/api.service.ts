@@ -24,14 +24,10 @@ export class ApiService {
     return this.http.put(url, _id)
   }
 
-  deleteProduct(body) {
-    let url='https://ecommerce-kxhu.onrender.com/Product/deleteProduct';
-    let headers = new Headers();
-    // let url = `http://localhost:8000/Product/deleteProduct`
-    console.log("url and body", url, body);
-
-    return this.http.delete(url, body)
-    // .map((res:any)=>res.json());
+  deleteProduct(_id) {
+    let url=`https://ecommerce-kxhu.onrender.com/Product/deleteProduct/${_id}`;
+    // let url = `http://localhost:8000/Product/deleteProduct/${_id}`
+    return this.http.delete(url, _id)
   }
 
   // deleteUser(_id){

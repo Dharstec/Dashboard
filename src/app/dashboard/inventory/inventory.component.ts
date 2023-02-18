@@ -8,6 +8,7 @@ import { ProductdetailsService } from 'src/app/services/productdetails.service';
 import { DialogAddproductComponent } from './addproduct/dialog-addproduct/dialog-addproduct.component';
 import { Observable } from 'rxjs';
 import { Options } from '@angular-slider/ngx-slider';
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -21,7 +22,7 @@ export class InventoryComponent implements OnInit {
   productList: any;
   productFormGroup: any
   productAllList: any
-
+  fileName = 'productDetailsExcel.xlsx';
   Catagory = new FormControl('');
   CatagoryList: string[] = [
     "Anklets",
@@ -57,6 +58,7 @@ export class InventoryComponent implements OnInit {
   // ]
   dialogValue: any;
   allProductList: any;
+  checked: any;
 
 
   constructor(private matDialog: MatDialog, private api: ApiService, private route: Router, private productDetails: ProductdetailsService, public dialog: MatDialog, private formBuilder: FormBuilder) {
@@ -120,13 +122,13 @@ export class InventoryComponent implements OnInit {
         })
 
       })
-      this.allProductList.forEach(element=>{
-        element.colour.map(items=>{
-          checked.forEach(x=>{
-            if(x==items){
+      this.allProductList.forEach(element => {
+        element.colour.map(items => {
+          checked.forEach(x => {
+            if (x == items) {
               temp.push(element)
             }
-            this.productList=temp
+            this.productList = temp
           })
         })
       })
@@ -135,10 +137,11 @@ export class InventoryComponent implements OnInit {
 
 
     }
-    else {
-
-    }
+    // else {
+    //   this.allProductList.forEach(element=> element.checked = false)
+    // }
   }
+
   addproduct() {
     this.productDetails.setdata(false)
     console.log(this.productDetails);
@@ -154,6 +157,21 @@ export class InventoryComponent implements OnInit {
     // return this.route.navigate(['dashboard/productDetails'],{queryParams:{type:'editProduct',viewData:'viewProduct'}})
   }
 
+
+  exportexcel() {
+    this.productList = document.getElementById("excel-table-id");
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.productList)
+    delete(ws['ACTION'])
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    console.log("wb", wb);
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.fileName);
+
+
+  }
   // getTableData() {
   //   let tableData = []
   //   this.productList.data.forEach(element => {
