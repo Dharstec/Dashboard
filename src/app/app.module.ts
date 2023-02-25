@@ -21,6 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogAddproductComponent } from './dashboard/inventory/addproduct/dialog-addproduct/dialog-addproduct.component';
 import { SearchPipe,orderSearchPipe } from './search.pipe';
+import {MatSliderModule} from '@angular/material/slider';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSliderModule
+    NgxSliderModule,
+    MatSliderModule
   ],
     
     providers: [DatePipe],

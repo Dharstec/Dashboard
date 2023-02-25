@@ -11,6 +11,7 @@ export class ApiService {
 
   getProductData() {
     let url = 'https://ecommerce-kxhu.onrender.com/Product/getProduct';
+    // let url ='http://localhost:8000/Product/getProduct'
     return this.http.get(url);
   }
   createProductData(body) {
@@ -30,14 +31,14 @@ export class ApiService {
     return this.http.delete(url, _id)
   }
 
-  // deleteUser(_id){
-  //   let headers = new Headers();
-  //   return this.http.delete(this.deleteurl+_id)
-  //   .map(res => res.json());
-  // }
-  getOrderData() {
+getOrderData() {
     let url = "https://ecommerce-kxhu.onrender.com/Order/getAllOrder";
+    // let url='http://localhost:8000/Order/getAllOrder'
     return this.http.get(url)
   }
-
+updateOrderData(body){
+  let url="https://ecommerce-kxhu.onrender.com/Order/updateOrder";
+  // let url = "http://localhost:8000/Order/updateOrder";
+    return this.http.put(url,body)
+}
 }

@@ -11,6 +11,8 @@ orderList:any;
   allOrderList: any;
   orderSearchValue: '';
   fileName = 'orderDetailsExcel.xlsx';
+  // _id:'';
+  // orderStatus:string;
   constructor(private api:ApiService) { }
 
   ngOnInit(): void {
@@ -38,5 +40,46 @@ orderList:any;
 
 
   }
+//   updateOrderStatus(){
+//     let body={
+// "_id":_id,
+// "orderStatus":orderStatus
+//     }
+//     this.api.updateOrderData(body).subscribe((result)=>{
+// console.log(result);
+
+//     })
+//   }
+
+  updateOrderStatus(rowdata,type){
+    console.log(rowdata);
+    
+    // let events =event.target.value    
+    // console.log(_id,orderStatus);
+    // type={
+    //   pending:'pending',
+    //   dispatched: "dispatch",
+    //   delivered:'delivered'
+    // }
+  let body={
+    "_id":rowdata._id,
+    "orderStatus":type,
+    
+        }
+     
+this.api.updateOrderData(body).subscribe((res:any)=>{
+console.log(res);
+this.orderList=res.data
+console.log(this.orderList);
+
+// this.pending(_id,orderStatus)
+})
+}
+dispatch(){
+
+}
+delivery(){
+
+}
 }
 

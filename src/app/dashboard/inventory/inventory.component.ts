@@ -42,6 +42,24 @@ export class InventoryComponent implements OnInit {
     "Rose Gold",
     "Silver"
   ]
+  disabled = false;
+  max = 100;
+  min = 0;
+  showTicks = false;
+  step = 1;
+  thumbLabel = false;
+  value = 0;
+  // autoTicks=false;
+  // disabled = false;
+  // invert=false;
+  // max = 100;
+  // min = 0;
+  // showTicks = false;
+  // step = 1;
+  // thumbLabel = false;
+  // value = 0;
+  // vertical=false;
+  // tickInterval=1;
   // value: number = 100;
   // highValue: number = 60;
   // options: Options = {
@@ -116,12 +134,19 @@ export class InventoryComponent implements OnInit {
 
               temp.push(element)
             }
-            this.productList = temp
-
+            this.productList = temp;
+            // else{
+            //     this.productList=this.allProductList;
+            // }
           })
-        })
 
-      })
+        })
+        this.productList = this.allProductList;
+      }
+
+      )
+      console.log("this.productList1", this.productList);
+
       this.allProductList.forEach(element => {
         element.colour.map(items => {
           checked.forEach(x => {
@@ -132,6 +157,7 @@ export class InventoryComponent implements OnInit {
           })
         })
       })
+      //  this.productList=this.allProductList;
       console.log("temp", temp);
       console.log("productListdata", this.productList.data);
 
@@ -161,7 +187,9 @@ export class InventoryComponent implements OnInit {
   exportexcel() {
     this.productList = document.getElementById("excel-table-id");
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.productList)
-    delete(ws['ACTION'])
+    // delete(ws['H1'])
+    console.log("ws", ws);
+
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     console.log("wb", wb);
 
@@ -169,6 +197,28 @@ export class InventoryComponent implements OnInit {
 
     /* save to file */
     XLSX.writeFile(wb, this.fileName);
+
+
+  }
+  stockfilter(event) {
+    let temp = []
+    let stockCount = event.target.value
+    stockCount = Number(stockCount)
+    console.log(event.target.value);
+    if (stockCount != '') {
+      this.allProductList.forEach(element => {
+        if (element.stock <= stockCount) {
+          temp.push(element)
+
+        }
+        this.productList = temp;
+      }
+      )
+    }
+    else {
+      this.productList = this.allProductList;
+    }
+
 
 
   }

@@ -67,7 +67,7 @@
             </mat-card>
 </div>
    
-          <table class="custom-fixed-tables table" id="excel-table-id">
+          <table class="customs-fixed-tables table" id="excel-table-id">
             <thead>
                 <tr>
                     <th scope="col">
@@ -88,7 +88,7 @@
                     </th>
                 </tr>
             </thead>
-            <ng-container *ngFor="let row of orderList  | orderSearch:orderSearchValue ; let i=index  ">
+            <ng-container *ngFor="let row of orderList  | orderSearch:orderSearchValue ; let i=index " >
                 <tbody>
                     <tr>
                         <th>
@@ -98,9 +98,12 @@
                         </th>
                         <th>
                             <!-- Billing Address:<br> -->
+                            {{row.customerName}}<br>
+                            {{row.customerEmailId}}<br>
                             {{row.customerAddress}} <br>
                             <!-- Phone Number:<br> -->
                             {{row.customerPhoneNumber}}
+
 
                             <!-- Billing Address:<br>
                             Dharstec Solutions admin@dharstec.com
@@ -109,7 +112,7 @@
                         </th>
                        
                         <th>
-                         <div *ngFor="let list of row.orders let i=index ">
+                         <div *ngFor="let list of row.orders let i=index " class="mb-3">
                             {{list.productId.productName}}<br>
                             {{list.productId.category.join(', ')}}<br>
                             {{list.productId.colour.join(', ')}}<br>
@@ -121,11 +124,20 @@
                             Quantity:2
                             Price:2350 -->
                         </th>
-                        <th>
-                            <!-- <img src="assets\Rectangle 506.png" /> -->
+                        <th >
+                            <!-- <div *ngFor="let list of row.orderStatus let i=index">
+
                             <i class="fa fa-square-o" aria-hidden="true"></i>
-                            <!-- Dispatch -->
-                            {{row.orderStatus.join(', ')}}
+                            Dispatch
+                            {{list.status}}
+                            {{list.comment}}
+                        </div> -->
+                        
+                        <div class="btn-group">
+                        <button [style.background-color]="'red'" [style.color]="'white'"  style="display: block;"(click)="updateOrderStatus(row,'pending')">Pending</button>
+                        <button [style.background-color]="'yellow'" [style.color]="'white'" style="display: block;"(click)="updateOrderStatus(row,'dispatched')">Dispatched</button>
+                        <button [style.background-color]="'green'" [style.color]="'white'"  style="display: block;"(click)="updateOrderStatus(row ,'delivered')">Delivered</button>
+                    </div>
                         </th>
                     </tr>
                 </tbody>

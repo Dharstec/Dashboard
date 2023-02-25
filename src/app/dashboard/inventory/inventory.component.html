@@ -16,7 +16,7 @@
     <div class="section-b">
       <input class="input" type="text"  name="Search" placeholder="&#61442; Search" [(ngModel)]="searchText" style="font-family:Arial, FontAwesome">
     </div>
-    <form [formGroup]="productFormGroup">
+    <form [formGroup]="productFormGroup" >
     <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Catagory</mat-label>
       <mat-select (selectionChange)="productCategory($event,'catagory')"  formControlName="Catagory" multiple>
@@ -31,14 +31,22 @@
     </mat-form-field>
     <!-- <mat-form-field appearance="fill" class="example-additional-selection">
       <mat-label>Stock</mat-label>
-      <mat-select  formControlName="Stocks" multiple>
-        <mat-option (change)="productCategory($event,row,'stocks')"  *ngFor="let row of StockLists" [value]="row">{{row}}</mat-option>
-      </mat-select>
+      <input type="number" class="form-control"  placeholder="Stock" style="border: none;">
     </mat-form-field> -->
     <!-- <ngx-slider [(value)]="value" [(highValue)]="highValue"  [options]="options">
 <input type="number" [(ngModel)]="value">
 <input type="number" [(ngModel)]="highValue">
 </ngx-slider> -->
+<!-- <mat-slider min="200" max="500">
+  <input value="300" matSliderStartThumb>
+  <input value="400" matSliderEndThumb>
+</mat-slider> -->
+      <!-- <div class="stock"> -->
+      <!-- <input  style="border: none;" type="text" class="form-control" formControlName="stock" id="exampleInputHeading1" placeholder="stock"> -->
+    <!-- </div> -->
+    <mat-label>
+    <input matInput style="border: none;" type="text" (keyup)="stockfilter($event)" class="form-control" formControlName="stock"  placeholder="stock" >
+  </mat-label>
   </form>
     <div class="add-product">
 

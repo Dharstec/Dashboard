@@ -19,6 +19,7 @@
     font-size: 15px;
     color: #B23392;
     margin-top: 10px;
+    cursor: pointer;
 }
 .mat-card{
 display:flex;
@@ -98,3 +99,55 @@ background: rgba(255, 231, 168, 0.65);
     //   .dropdown-select .mat-form-field{
        
     //   }
+    .customs-fixed-tables {
+        margin-top: 1rem;
+        overflow: auto;
+        max-height: 420px;
+        &.table{
+          border-collapse: separate; /* Don't collapse */
+          border-spacing: 0;
+          width: 100%;
+          position: relative;
+          thead {
+            th{
+              position: sticky;
+              border: solid 0px;
+              // border-bottom: solid 1px #8CD4FD;
+              white-space: nowrap;
+              top: 0;
+              background: #F6F8FA;
+              z-index: 5;
+              padding: 9px 12px;
+              border-radius: 10px;
+            }
+          }
+        
+          tbody {
+            tr{
+              // color: #271111 !important;
+              // font-size: 13px;
+              // line-height: 20px;
+              color: #271111 !important;
+              font-family: 'Inter';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              box-shadow: inset 0px -1px 0px #DAF1FF !important;
+              border-radius: 2px 2px 0px 0px;
+              border-top: none !important;
+              height: 45px;
+              text-align: left;
+            }
+            td{
+              padding: 9px 12px 2px 12px;
+              position: relative;
+              font-size: 13px;
+              line-height: 20px;
+              border-top: 0;
+            }
+          }
+        }
+      }
+.back-arrow{
+    cursor: pointer;
+}      

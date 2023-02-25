@@ -10,7 +10,18 @@
     line-height: 137.5%;
     color: #271111;
 }
-
+// .img-input input{
+//     display: none;
+// }
+// .img-input label{
+//     cursor: pointer;
+// }
+    // input{
+    //     display: none;
+    //   }
+    //   label{
+    //     cursor: pointer;
+    // }
 .mat-card {
     height: 740px;
 }
@@ -221,4 +232,10 @@ background: #f6f8fa;
 box-shadow: 0px 0 1pt 4pt #F6F8FA;
 border-radius: 10px;
 background: #f6f8fa;
+}
+.productform .image-upload-container{
+    cursor: pointer;
+}
+.back-arrow{
+    cursor: pointer;
 }

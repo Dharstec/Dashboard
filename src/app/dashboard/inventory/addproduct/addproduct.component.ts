@@ -1,8 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ProductdetailsService } from 'src/app/services/productdetails.service';
+class ImageSnippet {
+  pending: boolean;
+  status: string;
+  constructor(public src: string, public file: File) { }
+}
+
+class VideoSnippet {
+  pending: boolean;
+  status: string;
+  constructor(public src: string, public file: File) { }
+}
 
 @Component({
   selector: 'app-addproduct',
@@ -10,6 +21,7 @@ import { ProductdetailsService } from 'src/app/services/productdetails.service';
   styleUrls: ['./addproduct.component.scss']
 })
 export class AddproductComponent implements OnInit {
+  @ViewChild('videoPlayer') videoplayer: ElementRef;
   productResult: any;
   productForm: FormGroup;
   editproduct: any;
@@ -17,6 +29,12 @@ export class AddproductComponent implements OnInit {
   hideButton: any = false;
   changename: any;
   changetheproductName: any
+  selectedFile: ImageSnippet;
+  selectedvideosFile: VideoSnippet;
+  // imageSrc: string = '';
+// video:string='\assets\istockphoto-1309628270-640_adpp_is.mp4'
+  // videoplayer: any;
+
   constructor(private productDetails: ProductdetailsService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder, private api: ApiService) { }
 
   ngOnInit(): void {
@@ -56,7 +74,7 @@ export class AddproductComponent implements OnInit {
       discountPrice: [row && row.discountPrice ? row.discountPrice : null,],
       actualPrice: [row && row.actualPrice ? row.actualPrice : null,],
       description: [row && row.description ? row.description : null,],
-    for: [row && row.for ? row.for : null,],
+      for: [row && row.for ? row.for : null,],
       _id: [row && row._id ? row._id : null,],
       stock: [row && row.stock ? row.stock : null,],
       category: [row && row.category ? row.category : null,],
@@ -74,6 +92,7 @@ export class AddproductComponent implements OnInit {
       let form = this.productForm.getRawValue()
       let body = {
         "productName": form.productName,
+        // "productImage":form.productImage,
         "discountPrice": Number(form.discountPrice),
         "actualPrice": Number(form.actualPrice),
         "description": form.description,
@@ -132,5 +151,75 @@ export class AddproductComponent implements OnInit {
     }
 
   }
-
+    proccessimgupload(imageInput:any){
+      let form = this.productForm.getRawValue()
+      const file:File = imageInput.files[0];
+      const reader = new FileReader(); 
+      reader.addEventListener('load',(event:any)=>{
+        // debugger;
+     this.selectedFile= new ImageSnippet(event.target.result, file,)
+     let body = {
+      "_id": form._id,
+      "productImages":this.selectedFile.src
+    }
+     console.log(this.selectedFile.src);
+    //  debugger;
+     this.api.updateProduct(body).subscribe((res)=>{
+      console.log(res);
+      
+     },(err)=>{
+      console.log(err);
+      
+     })
+      });
+      reader.readAsDataURL(file);
+    }
+    onFileSelected(videoInput:any){
+      let form = this.productForm.getRawValue()
+      const file:File = videoInput.files[0];
+      const reader = new FileReader(); 
+      reader.addEventListener('load',(event:any)=>{
+        debugger;
+     this.selectedFile= new VideoSnippet(event.target.result, file,)
+     let body = {
+      "_id": form._id,
+      "productVideos":this.selectedFile.src
+    }
+     console.log(this.selectedFile.src);
+     debugger;
+     this.api.updateProduct(body).subscribe((res)=>{
+      console.log(res);
+      
+     },(err)=>{
+      console.log(err);
+      
+     })
+      });
+      reader.readAsDataURL(file);
+    }
+    // onFileSelected(event:any){
+    //   console.log(event);
+      
+    //   let form = this.productForm.getRawValue()
+    //   // const file:File = event.files[0];
+    //   const file:File = event.target.files[0].name
+    //   console.log(file);
+    //  let body = {
+    //   "_id": form._id,
+    //   "productVideos":file
+    // }
+    // //  debugger;
+    //  this.api.updateProduct(body).subscribe((res)=>{
+    //   console.log(res);
+      
+    //  },(err)=>{
+    //   console.log(err);
+      
+    //  })
+    // }
+  //   toggleVideo(event: any) {
+  //     console.log(event);
+      
+  //     this.videoplayer.nativeElement.play();
+  // }
 }

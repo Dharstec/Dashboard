@@ -49,6 +49,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
           border-radius: 2px 2px 0px 0px;
           border-top: none !important;
           height: 45px;
+          // text-align: left;
         }
         td{
           padding: 9px 12px 2px 12px;
@@ -59,4 +60,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         }
       }
     }
+  }
+  .mat-form-field-underline{
+    height: 0px !important;
+    width: 0px !important;
+  }
+  .mat-form-field-wrapper{
+    padding-bottom: 0 !important;
   }

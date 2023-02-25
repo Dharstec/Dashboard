@@ -28,11 +28,12 @@ color: #271111;
 }
 .title-inventory i{
   float: right;
-  margin-right: 290px;
+  margin-right: 330px;
   font-weight: 600;
   font-size: 15px;
   color: #B23392;
   margin-top: 10px;
+  cursor: pointer;
 
 
 }
@@ -42,6 +43,7 @@ color: #271111;
 
  .back-arrow{
 color: #271111;
+cursor: pointer;
  } 
  .input-group{
   border: 1px solid #000000;
@@ -102,4 +104,20 @@ font-size: 20px;
 //   padding-bottom: none;
 // }
 
-
+// mat-form-field-subscript-wrapper{
+//   border: none !important;
+// }
+// mat-slider {
+//   width: 300px;
+// }
+// mat-form-field-subscript-wrapper ng-tns-c112-2
+.mat-card input{
+  width: 200px;
+        height: 40px;
+    border-radius: 10px;
+    background: #f6f8fa;
+    margin-left: 10px;
+}
+.mat-card{
+  padding: 20px;
+}
