@@ -10,6 +10,7 @@
 
     <div class="container">
         <div class="row">
+            <div class="d-flex justify-content-center ml-5">
             <div class="card-order">
                 <div class="col">
                     <mat-card>
@@ -47,8 +48,10 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
-    <div class="search-box-card">
+    <div class="container">
+    <div class="search-box-card ml-n4">
         <mat-card>
             <!-- <mat-card-content>Simple card</mat-card-content> -->
             <div class="section-b ">
@@ -56,15 +59,26 @@
               </div> 
               <div class="dropdown-select">
               <mat-form-field appearance="fill">
-                <mat-label>Order placed</mat-label>
+                <mat-label>Select an option</mat-label>
                 <mat-select disableRipple>
-                  <mat-option value="1">order Placed</mat-option>
+                  <mat-option value="1">Order placed</mat-option>
                   <mat-option value="2">Dispatched</mat-option>
                   <mat-option value="3">Delivered</mat-option>
                 </mat-select>
               </mat-form-field>
             </div> 
+            <div class="dropdown-select">
+                <mat-form-field appearance="fill">
+                  <mat-label>Select an option</mat-label>
+                  <mat-select disableRipple>
+                    <mat-option value="1">Cash On Delivery</mat-option>
+                    <mat-option value="2">Cash</mat-option>
+                    <mat-option value="3">RazorPay</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div> 
             </mat-card>
+</div>
 </div>
    
           <table class="customs-fixed-tables table" id="excel-table-id">
@@ -72,6 +86,10 @@
                 <tr>
                     <th scope="col">
                         <img src="assets\check_box.svg" />ORDER ID
+                    </th>
+
+                    <th scope="col">
+                        <img src="assets\check_box.svg" />GIFT WRAP 
                     </th>
                     <th scope="col">
                         <img src="assets\group.svg" />
@@ -93,22 +111,20 @@
                     <tr>
                         <th>
                             {{row._id}}
-                            <!-- #1234
-                            GIFT WRAP -->
                         </th>
                         <th>
-                            <!-- Billing Address:<br> -->
+                            {{row.giftWrap}}
+                        </th>
+                        <th>
                             {{row.customerName}}<br>
                             {{row.customerEmailId}}<br>
-                            {{row.customerAddress}} <br>
-                            <!-- Phone Number:<br> -->
+                            {{row.customerAddress.doorNoAndStreet}} <br>
+                            {{row.customerAddress.city}}
+                            {{row.customerAddress.state}}
+                            {{row.customerAddress.pincode}}
+                            {{row.customerAddress.landmark}}
+                            {{row.customerAddress.country}}<br>
                             {{row.customerPhoneNumber}}
-
-
-                            <!-- Billing Address:<br>
-                            Dharstec Solutions admin@dharstec.com
-                            Balaji Nagar 2nd Cross Street
-                            9876543210 -->
                         </th>
                        
                         <th>
@@ -119,24 +135,16 @@
                             {{list.quantity}}<br>
                             {{list.productId.actualPrice}}<br>
                          </div>
-                            <!-- Product:<br>
-                            Blue Stone Ear Ring
-                            Quantity:2
-                            Price:2350 -->
                         </th>
                         <th >
-                            <!-- <div *ngFor="let list of row.orderStatus let i=index">
-
-                            <i class="fa fa-square-o" aria-hidden="true"></i>
-                            Dispatch
-                            {{list.status}}
-                            {{list.comment}}
-                        </div> -->
-                        
                         <div class="btn-group">
-                        <button [style.background-color]="'red'" [style.color]="'white'"  style="display: block;"(click)="updateOrderStatus(row,'pending')">Pending</button>
-                        <button [style.background-color]="'yellow'" [style.color]="'white'" style="display: block;"(click)="updateOrderStatus(row,'dispatched')">Dispatched</button>
-                        <button [style.background-color]="'green'" [style.color]="'white'"  style="display: block;"(click)="updateOrderStatus(row ,'delivered')">Delivered</button>
+                            <!-- (click)="updateOrderStatus(row,'dispatched')" (click)="updateOrderStatus(row,'pending')" -->
+                            <button mat-flat-button class="m-1" color="primary" style="display: block;" *ngIf="row.orderStatus == 'pending'">Pending</button>
+                            <button mat-flat-button class="m-1" color="accent" style="display: block;"  (click)='openDialogOrderStatus(row)' >Dispatched</button>
+                            <button mat-flat-button class="m-1" color="warn" style="display: block;" *ngIf="row.orderStatus == 'dispatch'" (click)="updateOrderStatus(row ,'delivered')"  >Delivered</button>
+                      <!-- <button [style.background-color]="'red'" [style.color]="'white'"  >Pending</button> -->
+                        <!-- <button [style.background-color]="'yellow'" [style.color]="'white'" style="display: block;" (click)='openDialogOrderStatus(row)'>Dispatched</button> -->
+                        <!-- <button [style.background-color]="'green'" [style.color]="'white'"  style="display: block;"(click)="updateOrderStatus(row ,'delivered')">Delivered</button> -->
                     </div>
                         </th>
                     </tr>

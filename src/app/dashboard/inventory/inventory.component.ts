@@ -79,7 +79,7 @@ export class InventoryComponent implements OnInit {
   checked: any;
 
 
-  constructor(private matDialog: MatDialog, private api: ApiService, private route: Router, private productDetails: ProductdetailsService, public dialog: MatDialog, private formBuilder: FormBuilder) {
+  constructor(private matDialog: MatDialog, private api: ApiService, private route: Router, private productDetails: ProductdetailsService, private formBuilder: FormBuilder) {
   }
   openDialog(row): Observable<any> {
     // :Observable<any>
@@ -218,9 +218,6 @@ export class InventoryComponent implements OnInit {
     else {
       this.productList = this.allProductList;
     }
-
-
-
   }
   // getTableData() {
   //   let tableData = []
