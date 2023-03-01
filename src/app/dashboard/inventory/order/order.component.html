@@ -16,7 +16,7 @@
                     <mat-card>
                         <mat-card-content>
                             <h3> New Orders </h3>
-                            <h3>121 | impression -10 %
+                            <h3>{{orderStatusPending}} | impression -10 %
                                 <i class="fa fa-arrow-up" aria-hidden="true"></i>
                             </h3>
                         </mat-card-content>
@@ -28,7 +28,7 @@
                     <mat-card>
                         <mat-card-content>
                             <h3> Dispatch Orders </h3>
-                            <h3>22 | impression -15 %
+                            <h3>{{orderStatusDispatch}} | impression -15 %
                                 <i class="fa fa-arrow-down" aria-hidden="true"></i>
                             </h3>
                         </mat-card-content>
@@ -40,7 +40,7 @@
                     <mat-card>
                         <mat-card-content>
                             <h3> Delivered Orders </h3>
-                            <h3>62 | impression -16 %
+                            <h3>{{orderStatusdelivery}} | impression -16 %
                                 <i class="fa fa-arrow-up" aria-hidden="true"></i>
                             </h3>
                         </mat-card-content>
@@ -60,14 +60,14 @@
               <div class="dropdown-select">
               <mat-form-field appearance="fill">
                 <mat-label>Select an option</mat-label>
-                <mat-select disableRipple>
-                  <mat-option value="1">Order placed</mat-option>
-                  <mat-option value="2">Dispatched</mat-option>
-                  <mat-option value="3">Delivered</mat-option>
+                <mat-select disableRipple (selectionChange)="orderStatusFilter($event)" >
+                  <mat-option *ngFor="let row of orderStatusList" [value]="row">{{row}}</mat-option>
+                  <!-- <mat-option *ngFor="let row of orderStatusList" [value]="row">{{row}}</mat-option>
+                  <mat-option *ngFor="let row of orderStatusList" [value]="row">{{row}}</mat-option> -->
                 </mat-select>
               </mat-form-field>
             </div> 
-            <div class="dropdown-select">
+            <!-- <div class="dropdown-select">
                 <mat-form-field appearance="fill">
                   <mat-label>Select an option</mat-label>
                   <mat-select disableRipple>
@@ -76,7 +76,7 @@
                     <mat-option value="3">RazorPay</mat-option>
                   </mat-select>
                 </mat-form-field>
-              </div> 
+              </div>  -->
             </mat-card>
 </div>
 </div>

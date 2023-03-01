@@ -16,7 +16,6 @@ export class DashboardComponent implements OnInit {
     this.isMenuOpen = false;
   }
   constructor(private datePipe:DatePipe) { 
-
   }
   ngOnInit(): void {
     // this.currentDate=formatDate(this.currentDate, 'yyyy-MM-dd', 'en-US')
@@ -29,7 +28,6 @@ export class DashboardComponent implements OnInit {
   }
   mainContentCollapse(){
     return this.isMenuOpen ? 'expand' : 'remove'  }
-
-
-
 }
+
+// button active --->gv --->click --> orders 
