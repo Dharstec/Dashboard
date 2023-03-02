@@ -1,7 +1,8 @@
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
-        <button class="logo" (click)="toggleCollapse()">A</button>
-        <div class="logo-text" *ngIf="collapsed">Aura</div>
+        <!-- <button  (click)="toggleCollapse()">A</button> -->
+        <img class="logo" src="assets\image 5.svg" (click)="toggleCollapse()">
+        <div class="logo-text" *ngIf="collapsed">AURA SILVER</div>
         <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
             <mat-icon class="iconsmat">menu</mat-icon>
         </button>
@@ -10,7 +11,7 @@
         <li class="sidenav-nav-item" *ngFor="let data of navData">
             <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact:true}">
-                <mat-icon class="sidenav-link-icon" matTooltip={{data.label}}>{{data.icon}}</mat-icon>
+                <mat-icon class="sidenav-link-icon" matTooltip={{data.label}} matTooltipPosition="right">{{data.icon}}</mat-icon>
                 <span class="sidenav-link-text" *ngIf="collapsed" >{{data.label}}</span>
             </a>
         </li>

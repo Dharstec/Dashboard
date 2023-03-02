@@ -28,9 +28,9 @@
         }
 
         .logo-text {
-            margin-left: 1.5rem;
-            font-size: 24px;
-            font-weight: 700;
+            margin-left: 0.5rem;
+            font-size: 15px;
+            font-weight: 600;
             color: white;
         }
 
@@ -81,6 +81,8 @@
             transition: all .3s ease;
 
             .sidenav-link-icon {
+                position: relative;
+                left:5px;
                 font-size: 20px;
                 width: 2rem;
                 min-width: 2rem;
