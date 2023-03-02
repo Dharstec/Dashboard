@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ProductdetailsService } from 'src/app/services/productdetails.service';
@@ -23,7 +23,7 @@ class VideoSnippet {
 export class AddproductComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
   productResult: any;
-  productForm: FormGroup;
+  productForm: UntypedFormGroup;
   editproduct: any;
   productview: any = false;
   hideButton: any = false;
@@ -35,7 +35,7 @@ export class AddproductComponent implements OnInit {
 // video:string='\assets\istockphoto-1309628270-640_adpp_is.mp4'
   // videoplayer: any;
 
-  constructor(private productDetails: ProductdetailsService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private productDetails: ProductdetailsService, private route: ActivatedRoute, private router: Router, private formBuilder: UntypedFormBuilder, private api: ApiService) { }
 
   ngOnInit(): void {
 

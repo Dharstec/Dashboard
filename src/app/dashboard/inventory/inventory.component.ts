@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormBuilder, FormGroup } from '@angular/forms';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -23,7 +23,7 @@ export class InventoryComponent implements OnInit {
   productFormGroup: any
   productAllList: any
   fileName = 'productDetailsExcel.xlsx';
-  Catagory = new FormControl('');
+  Catagory = new UntypedFormControl('');
   CatagoryList: string[] = [
     "Anklets",
     "Bracelets",
@@ -35,7 +35,7 @@ export class InventoryComponent implements OnInit {
     "Rings",
     "Jewellery Set",
     "Toe Rings"];
-  Color = new FormControl('');
+  Color = new UntypedFormControl('');
   ColorList: string[] = [
     "Gold",
     "Oxidised Silver",
@@ -79,7 +79,7 @@ export class InventoryComponent implements OnInit {
   checked: any;
 
 
-  constructor(private matDialog: MatDialog, private api: ApiService, private route: Router, private productDetails: ProductdetailsService, private formBuilder: FormBuilder) {
+  constructor(private matDialog: MatDialog, private api: ApiService, private route: Router, private productDetails: ProductdetailsService, private formBuilder: UntypedFormBuilder) {
   }
   openDialog(row): Observable<any> {
     // :Observable<any>
