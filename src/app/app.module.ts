@@ -17,6 +17,9 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { DialogOrderstatusComponent } from './dashboard/inventory/order/dialog-orderstatus/dialog-orderstatus.component';
 import { MaterialModule } from './material.module';
 import { SidenavComponent } from './navbar/sidenav/sidenav.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { BodyComponent } from './body/body.component';
+import { HeadersComponent } from './headers/headers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,7 @@ import { SidenavComponent } from './navbar/sidenav/sidenav.component';
     DialogAddproductComponent,
     SearchPipe,
     orderSearchPipe,
-    DialogOrderstatusComponent,SidenavComponent
+    DialogOrderstatusComponent, SidenavComponent, AnalyticsComponent, BodyComponent, HeadersComponent
   ],
   imports: [
     AppRoutingModule,

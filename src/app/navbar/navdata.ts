@@ -1,6 +1,6 @@
 export const navMenuBar = [
     {
-        routeLink: 'dashboard',
+        routeLink: 'analytic',
         icon: 'bar_chart',
         label: 'Analytics'
     },
@@ -30,7 +30,7 @@ export const navMenuBar = [
         label: 'Staff'
     },
     {
-        routeLink: '#/dashboard/order',
+        routeLink: 'order',
         icon: 'book',
         label: 'Orders'
     },

@@ -2,7 +2,7 @@
     background: #460b3c;
     transition: all .5s ease;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     width: 5rem;
     height: 100vh;
@@ -52,6 +52,10 @@
     }
 }
 
+.sidenav-nav-userName {
+    width: 100%;
+}
+
 .sidenav-collapsed {
     width: 16.5625rem;
 }
@@ -82,7 +86,7 @@
 
             .sidenav-link-icon {
                 position: relative;
-                left:5px;
+                left: 5px;
                 font-size: 20px;
                 width: 2rem;
                 min-width: 2rem;
@@ -92,7 +96,7 @@
                 text-align: center;
             }
 
-            .sidnav-link-text {
+            .sidenav-link-text {
                 margin-left: 1.5rem;
             }
         }
@@ -101,8 +105,17 @@
     .sidenav-nav-item:hover {
         .sidenav-nav-link {
             background-color: #7c5175;
-            color: #69898a;
-
+            color: #51c28b;
+            font-weight: 500;
         }
+    }
+}
+
+.active {
+    background-color: #7c5175;
+    .sidenav-link-icon,
+    .sidenav-link-text {
+        color: #51c28b !important;
+        font-weight: 500;
     }
 }
