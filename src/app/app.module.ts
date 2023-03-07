@@ -20,6 +20,7 @@ import { SidenavComponent } from './navbar/sidenav/sidenav.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { BodyComponent } from './body/body.component';
 import { HeadersComponent } from './headers/headers.component';
+import { CustomersComponent } from './customers/customers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { HeadersComponent } from './headers/headers.component';
     DialogAddproductComponent,
     SearchPipe,
     orderSearchPipe,
-    DialogOrderstatusComponent, SidenavComponent, AnalyticsComponent, BodyComponent, HeadersComponent
+    DialogOrderstatusComponent, SidenavComponent, AnalyticsComponent, BodyComponent, HeadersComponent,CustomersComponent
   ],
   imports: [
     AppRoutingModule,

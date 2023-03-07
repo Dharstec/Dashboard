@@ -1,19 +1,110 @@
-.box {
-    width: 100%;
-    height: 90%;
-    background-color: #ffffff;
-    padding: 12px;
-    border-radius: 10px;
+// .card {
+//     border: 1px solid #ccc; /* Add a border to the card */
+//     border-radius: 5px; /* Round the corners of the card */
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the card */
+//     padding: 20px; /* Add some padding to the card */
+//   }
+
+header {
+    display: flex;
+    /* Use flexbox to align items horizontally */
+    align-items: center;
+    /* Align items vertically */
+    justify-content: space-between;
+    /* Space items evenly along the line */
+    padding-bottom: 10px;
+    /* Add some spacing between the header and content */
 }
 
-.box .flex-r {
+h3 {
+    font-weight: 500;
+    margin: 0;
+    /* Remove default margin for the h1 element */
+}
+
+nav ul {
+    display: flex;
+    /* Use flexbox to align list items horizontally */
+    list-style: none;
+    /* Remove default bullet points */
+    margin: 0;
+    /* Remove default margin for the ul element */
+    padding: 0;
+    /* Remove default padding for the ul element */
+}
+
+nav li {
+    margin-right: 20px;
+    cursor: pointer;
+    /* Add some spacing between the list items */
+}
+
+nav a {
+    text-decoration: none;
+    /* Remove default underline for links */
+    color: #adb2c1;
+    font-weight: bold;
+    /* Set link font weight */
+}
+
+.content {
+    display: none;
+    /* Hide all content by default */
+    margin-top: 20px;
+    /* Add some spacing between the header and content */
+    line-height: 1.5;
+    /* Set line height for the content */
+}
+
+.content:first-of-type {
+    display: block;
+    /* Show the first tab content by default */
+}
+
+.active a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.activecat a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.container {
+    min-width: -webkit-fill-available !important;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 5px;
+}
+
+.col {
+    flex-basis: calc(100% / 3 - 20px);
+    margin: 10px;
+}
+
+.card {
+    background-color: #fff;
+    height: 90%;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.flex-r {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.box .totalRec {
+.totalRec {
     font-size: 30px;
     color: #0d0d0d;
     font-weight: 800;
@@ -23,22 +114,23 @@
     display: inline-block;
 }
 
-.box .iconCls {
+.iconCls {
     font-size: 20px;
     font-weight: 400;
     color: #6198e8;
 
 }
 
-.box .title {
+.title {
+    display: flex;
     font-size: 16px;
     font-weight: 500;
-    padding: 10px;
+    padding-left: 10px;
 }
 
-.box .flex-bot {
+.flex-bot {
     display: flex;
-    padding: 5px;
+    padding: 2px;
     font-size: 12px;
 
     .icon-cls {
@@ -47,19 +139,24 @@
         padding: 2px;
     }
 
-  
-}
-.rate  {
-    color: #939494 !important;
-} 
-.ratio{
-    color: #939494 !important;
+    .rate {
+        color: #939494 !important;
+    }
 
+    .ratio {
+        color: #939494 !important;
+
+    }
 }
-.box-icon {
-    font-size: 40px !important;
-    float: right;
-    margin-top: 35px;
-    color: #818181;
-    padding-right: 10px;
+
+@media (max-width: 991.98px) {
+    .col {
+        flex-basis: calc(100% / 2 - 20px);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .col {
+        flex-basis: 100%;
+    }
 }

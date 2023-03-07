@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { CustomersComponent } from './customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddproductComponent } from './dashboard/inventory/addproduct/addproduct.component';
 import { InventoryComponent } from './dashboard/inventory/inventory.component';
@@ -10,6 +11,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'analytic', pathMatch: 'full' },
   { path: 'analytic', component: AnalyticsComponent },
   { path: 'inventory', component: InventoryComponent },
+  { path: 'customers', component: CustomersComponent },
+
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   // {
   //   path: 'dashboard', component: DashboardComponent, data: { title: 'dashboard' },

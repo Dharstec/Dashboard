@@ -1,52 +1,134 @@
-<div class="row" style="margin-top:5px;margin-bottom: 10px;">
-   <div class="col" *ngFor="let details of totalCount">
-      <div class="box">
-         <div class="flex-r">
-            <p class="totalRec">{{details.totalRecords | number:'1.0' }}</p>
-            <mat-icon class="iconCls">{{details.icon}}</mat-icon>
+<!-- <div class="card">
+    <header>
+      <h1>My Card</h1>
+      <nav>
+        <ul>
+          <li class="active"><a href="#tab1">Tab 1</a></li>
+          <li><a href="#tab2">Tab 2</a></li>
+          <li><a href="#tab3">Tab 3</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="content" id="tab1">
+      <p>Content for Tab 1 goes here.</p>
+    </div>
+    <div class="content" id="tab2">
+      <p>Content for Tab 2 goes here.</p>
+    </div>
+    <div class="content" id="tab3">
+      <p>Content for Tab 3 goes here.</p>
+    </div>
+  </div>
+   -->
 
-         </div>
-         <span class="title">{{details.title}}</span>
-         <div class="flex-bot">
-            <mat-icon class="icon-cls">north_east</mat-icon>
-            <p class="rate">{{details.rate}}</p>&nbsp;&nbsp;<span class="ratio">+{{details.ratio}}% this week</span>
-         </div>
+   <div class="container">
+      <div class="row">
+          <div class="col-md-3 col-sm-6" *ngFor="let details of totalCount">
+              <div class="card">
+                  <div class="flex-r">
+                      <p class="totalRec">{{details.totalRecords | number:'1.0' }}</p>
+                      <mat-icon class="iconCls">{{details.icon}}</mat-icon>
+  
+                  </div>
+                  <span class="title">{{details.title}}</span>
+                  <div class="flex-bot">
+                      <mat-icon class="icon-cls">north_east</mat-icon>
+                      <p class="rate">{{details.rate}}</p>&nbsp;&nbsp;<span class="ratio">+{{details.ratio}}% this
+                          week</span>
+                  </div>
+              </div>
+          </div>
       </div>
-   </div>
-</div>
-<div class="row" style="margin-top:5px;margin-bottom: 1opx;">
-   <div class="col">
-      <!-- <mat-card>
-         <div class="flex-card">
-            <mat-card-header>Category</mat-card-header>
-            <mat-tab-group>
-               <mat-tab label="First"> Content 1 </mat-tab>
-               <mat-tab label="Second"> Content 2 </mat-tab>
-               <mat-tab label="Third"> Content 2 </mat-tab>
-            </mat-tab-group>
-         </div>
-      </mat-card> -->
-   </div>
-   <div class="col">
-      <div class="box">
-
+      <div class="row">
+          <div class="col-md-6 col-sm-6">
+              <div class="card">
+                  <header>
+                      <h3>Total Sales</h3>
+                      <nav>
+                          <ul>
+                              <li [ngClass]="{'active': tabId === '#tab1'}"><a (click)="onTabClick('#tab1')">Viewed vs
+                                      Sold</a></li>
+                              <li [ngClass]="{'active': tabId === '#tab2'}"><a (click)="onTabClick('#tab2')">Viewed</a>
+                              </li>
+                              <li [ngClass]="{'active': tabId === '#tab3'}"><a (click)="onTabClick('#tab3')">Sold</a></li>
+                          </ul>
+                      </nav>
+                  </header>
+                  <div class="content" id="tab1" *ngIf="tabId==='#tab1'">
+                      <p>Content for Tab 1 goes here.</p>
+                  </div>
+                  <div class="content" id="tab2" *ngIf="tabId==='#tab2'">
+                      <p>Content for Tab 2 goes here.</p>
+                  </div>
+                  <div class="content" id="tab3" *ngIf="tabId==='#tab3'">
+                      <p>Content for Tab 3 goes here.</p>
+                  </div>
+  
+              </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              <div class="card">
+                  <header>
+                      <h3>Category</h3>
+                      <nav>
+                          <ul>
+                              <li [ngClass]="{'activecat': tabIdcat === '#tab1'}"><a
+                                      (click)="onTabClickcat('#tab1')">Viewed vs Sold</a></li>
+                              <li [ngClass]="{'activecat': tabIdcat === '#tab2'}"><a
+                                      (click)="onTabClickcat('#tab2')">Viewed</a></li>
+                              <li [ngClass]="{'activecat': tabIdcat === '#tab3'}"><a
+                                      (click)="onTabClickcat('#tab3')">Sold</a></li>
+                          </ul>
+                      </nav>
+                  </header>
+                  <div class="content" id="tab1" *ngIf="tabIdcat==='#tab1'">
+                      <p>Content for Tab 1 goes here.</p>
+                  </div>
+                  <div class="content" id="tab2" *ngIf="tabIdcat==='#tab2'">
+                      <p>Content for Tab 2 goes here.</p>
+                  </div>
+                  <div class="content" id="tab3" *ngIf="tabIdcat==='#tab3'">
+                      <p>Content for Tab 3 goes here.</p>
+                  </div>
+  
+              </div>
+          </div>
       </div>
-   </div>
-</div>
-<div class="row" style="margin-top:5px;margin-bottom: 10px;">
-   <div class="col-6">
-      <div class="box">
-
+      <div class="row">
+          <div class="col-md-4 col-sm-6">
+              <div class="card">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                      <h3 class="card-title">Affiliate / Coupons</h3>
+                      <button mat-raised-button color="primary" style="height:25px;font-size:10px">See all</button>
+                  </div>
+                  <div class="card-body">
+                        <!-- <mat-table [dataSource]="dataSource">
+  
+                        </mat-table> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+              <div class="card">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                      <h3 class="card-title">Customers</h3>
+                      <div style="width: 100%;height:100%;background-color:aqua"></div>
+                      <div style="width: 100%;height:100%;background-color:rgb(23, 25, 25)"></div>
+                      <div style="width: 100%;height:100%;background-color:rgb(158, 189, 36)"></div>
+  
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+              <div class="card">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                      <h3 class="card-title">Age Category</h3>
+                      <button mat-raised-button color="primary" style="height:25px;font-size:10px">See all</button>
+                  </div>
+                  <div class="card-body">
+                 
+                  </div>
+              </div>
+          </div>
       </div>
-   </div>
-   <div class="col-3">
-      <div class="box">
-
-      </div>
-   </div>
-   <div class="col-3">
-      <div class="box">
-
-      </div>
-   </div>
-</div>
+  </div>
