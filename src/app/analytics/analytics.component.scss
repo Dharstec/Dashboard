@@ -148,7 +148,11 @@ nav a {
 
     }
 }
-
+.flex-end{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
 @media (max-width: 991.98px) {
     .col {
         flex-basis: calc(100% / 2 - 20px);
