@@ -20,6 +20,9 @@
       "es2018",
       "dom"
     ],
+    "types": [
+      "gapi",
+    ],
     "useDefineForClassFields": false
   },
   // "angularCompilerOptions": {

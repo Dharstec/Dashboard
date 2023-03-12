@@ -21,6 +21,9 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { BodyComponent } from './body/body.component';
 import { HeadersComponent } from './headers/headers.component';
 import { CustomersComponent } from './customers/customers.component';
+import { SharedModule } from './shared-module/shared.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,7 @@ import { CustomersComponent } from './customers/customers.component';
     DialogAddproductComponent,
     SearchPipe,
     orderSearchPipe,
-    DialogOrderstatusComponent, SidenavComponent, AnalyticsComponent, BodyComponent, HeadersComponent,CustomersComponent
+    DialogOrderstatusComponent, SidenavComponent, AnalyticsComponent, BodyComponent, HeadersComponent, CustomersComponent
   ],
   imports: [
     AppRoutingModule,
@@ -42,7 +45,8 @@ import { CustomersComponent } from './customers/customers.component';
     FormsModule,
     ReactiveFormsModule,
     NgxSliderModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ],
 
   providers: [DatePipe],

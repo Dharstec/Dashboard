@@ -61,12 +61,12 @@ nav a {
     /* Show the first tab content by default */
 }
 
-.active a {
+.activeSal a {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.activecat a {
+.activeCat a {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -74,7 +74,7 @@ nav a {
 .container {
     min-width: -webkit-fill-available !important;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 5px auto;
 }
 
 .row {
@@ -95,6 +95,8 @@ nav a {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
     text-align: center;
+    margin: 10px;
+   
 }
 
 .flex-r {
@@ -164,3 +166,56 @@ nav a {
         flex-basis: 100%;
     }
 }
+// .card {
+//     display: flex;
+//     flex-direction: column;
+//     height: auto;
+//     max-width: 100%;
+//     background-color: #fff;
+//     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+//   }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .card-body {
+    flex: 1;
+    padding: 5px;
+    overflow-y: auto;
+  }
+  
+  .table-holder {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .table-holder table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .header {
+    font-size: 10px;
+    font-weight: 500;
+    background: #f7f9fc;
+    color: #b8c3cf;
+  }
+    
+  td{
+    color:#a8abad
+  }
+  ::ng-deep g > rect {
+    rx: 5px;
+    ry: 5px;
+  }
+ 
